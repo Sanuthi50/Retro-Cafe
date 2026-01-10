@@ -1,0 +1,632 @@
+.hero {
+  position: relative;
+  min-height: 100vh;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  overflow: hidden;
+  padding-top: 80px;
+}
+
+.animatedBg {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  transition: background 0.3s ease;
+}
+
+.beanPattern {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: radial-gradient(circle, rgba(44, 24, 16, 0.08) 2px, transparent 2px);
+  background-size: 40px 40px;
+  opacity: 0.5;
+  pointer-events: none;
+}
+
+.newspaperOverlay {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  background-image: 
+    repeating-linear-gradient(0deg, rgba(44, 24, 16, 0.02) 0px, rgba(44, 24, 16, 0.02) 1px, transparent 1px, transparent 3px),
+    repeating-linear-gradient(90deg, rgba(44, 24, 16, 0.02) 0px, rgba(44, 24, 16, 0.02) 1px, transparent 1px, transparent 3px);
+  background-size: 3px 3px;
+  pointer-events: none;
+  opacity: 0.6;
+}
+
+.particleContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.particle {
+  position: absolute;
+  background: rgba(44, 24, 16, 0.15);
+  animation: floatParticle linear infinite;
+  pointer-events: none;
+  border-radius: 2px;
+}
+
+.rainContainer {
+  position: absolute;
+  top: 0;
+  left: 0;
+  right: 0;
+  bottom: 0;
+  pointer-events: none;
+  overflow: hidden;
+}
+
+.raindrop {
+  position: absolute;
+  width: 2px;
+  height: 30px;
+  background: linear-gradient(to bottom, transparent, rgba(100, 149, 237, 0.4));
+  animation: fall linear infinite;
+}
+
+.cornerTL {
+  position: absolute;
+  top: 30px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  border-top: 4px solid rgba(44, 24, 16, 0.3);
+  border-left: 4px solid rgba(44, 24, 16, 0.3);
+  pointer-events: none;
+}
+
+.cornerTR {
+  position: absolute;
+  top: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  border-top: 4px solid rgba(44, 24, 16, 0.3);
+  border-right: 4px solid rgba(44, 24, 16, 0.3);
+  pointer-events: none;
+}
+
+.cornerBL {
+  position: absolute;
+  bottom: 30px;
+  left: 30px;
+  width: 100px;
+  height: 100px;
+  border-bottom: 4px solid rgba(44, 24, 16, 0.3);
+  border-left: 4px solid rgba(44, 24, 16, 0.3);
+  pointer-events: none;
+}
+
+.cornerBR {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  border-bottom: 4px solid rgba(44, 24, 16, 0.3);
+  border-right: 4px solid rgba(44, 24, 16, 0.3);
+  pointer-events: none;
+}
+
+.heroContent {
+  text-align: center;
+  z-index: 10;
+  animation: fadeInUp 1.2s ease-out;
+  max-width: 1400px;
+  padding: 0 20px;
+}
+
+.headerOrnament {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 2rem;
+  margin-bottom: 1rem;
+}
+
+.ornamentLine {
+  width: 150px;
+  height: 2px;
+  background: linear-gradient(to right, transparent, #2c1810, transparent);
+}
+
+.headerIcon {
+  width: 40px;
+  height: 40px;
+  color: #2c1810;
+  animation: pulse 3s ease-in-out infinite;
+}
+
+.heroTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 6rem;
+  font-weight: 900;
+  color: #2c1810;
+  text-shadow: 4px 4px 0px rgba(0,0,0,0.1), 2px 2px 20px rgba(139, 69, 19, 0.2);
+  margin-bottom: 1rem;
+  letter-spacing: 0.05em;
+}
+
+.decorativeLine {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1.5rem;
+  margin: 1.5rem 0;
+}
+
+.decorativeDot {
+  font-size: 1.2rem;
+  color: #5c3a21;
+}
+
+.decorativeDash {
+  font-size: 0.8rem;
+  color: #5c3a21;
+  letter-spacing: 0.3em;
+}
+
+.heroSubtitle {
+  font-size: 1.5rem;
+  color: #5c3a21;
+  letter-spacing: 0.4em;
+  text-transform: uppercase;
+  font-weight: 700;
+  margin-bottom: 0.5rem;
+  font-family: 'EB Garamond', serif;
+}
+
+.tagline {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.3rem;
+  color: #704214;
+  font-style: italic;
+  margin-bottom: 3rem;
+  font-weight: 600;
+}
+
+.carouselWrapper {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 3rem;
+  margin: 3rem auto;
+  perspective: 2000px;
+}
+
+.carouselButton {
+  background: linear-gradient(135deg, #2c1810, #3d2416);
+  color: #f5eddd;
+  border: 3px solid #2c1810;
+  border-radius: 50%;
+  width: 60px;
+  height: 60px;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 4px 4px 0px rgba(44, 24, 16, 0.4), 0 5px 15px rgba(44, 24, 16, 0.3);
+  z-index: 20;
+}
+
+.bookContainer {
+  position: relative;
+  width: 700px;
+  height: 500px;
+  display: flex;
+  transform-style: preserve-3d;
+  animation: float 4s ease-in-out infinite;
+}
+
+.bookSpine {
+  position: absolute;
+  left: 50%;
+  top: 0;
+  bottom: 0;
+  width: 20px;
+  background: linear-gradient(to right, #3d2416, #2c1810, #3d2416);
+  transform: translateX(-50%);
+  z-index: 6;
+  box-shadow: 0 0 20px rgba(0,0,0,0.5);
+}
+
+.bookPage {
+  position: absolute;
+  width: 50%;
+  height: 100%;
+  background: #f5f0e8;
+  border: 3px solid #2c1810;
+  box-shadow: 0 10px 50px rgba(44, 24, 16, 0.5);
+  transition: transform 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+  backface-visibility: hidden;
+}
+
+.leftPage {
+  right: 50%;
+  transform-origin: right center;
+  border-right: none;
+}
+
+.rightPage {
+  left: 50%;
+  border-left: none;
+}
+
+.pageContent {
+  width: 100%;
+  height: 100%;
+  padding: 2rem;
+  background: repeating-linear-gradient(0deg, transparent 0px, transparent 29px, rgba(44, 24, 16, 0.05) 29px, rgba(44, 24, 16, 0.05) 30px);
+  position: relative;
+}
+
+.photoCorner {
+  position: absolute;
+  width: 20px;
+  height: 20px;
+  border: 2px solid #2c1810;
+  border-right: none;
+  border-bottom: none;
+  z-index: 10;
+}
+
+.imageContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  justify-content: center;
+  height: 100%;
+  position: relative;
+}
+
+.iconCircle {
+  width: 120px;
+  height: 120px;
+  border-radius: 50%;
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  margin-bottom: 1.5rem;
+  box-shadow: 0 8px 30px rgba(0,0,0,0.3);
+  border: 4px solid #2c1810;
+}
+
+.largeIcon {
+  width: 60px;
+  height: 60px;
+  color: #f5eddd;
+}
+
+.imageTitle {
+  font-family: 'Playfair Display', serif;
+  font-size: 2.5rem;
+  font-weight: 900;
+  color: #2c1810;
+  margin-bottom: 0.5rem;
+  text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+}
+
+.titleUnderline {
+  width: 100px;
+  height: 3px;
+  background: #2c1810;
+  margin-bottom: 1rem;
+}
+
+.imageSubtitle {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.3rem;
+  color: #5c3a21;
+  font-weight: 600;
+  margin-bottom: 0.5rem;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.imageDescription {
+  font-family: 'Crimson Text', serif;
+  font-size: 1.1rem;
+  color: #704214;
+  font-style: italic;
+}
+
+.coffeeRing {
+  position: absolute;
+  bottom: 30px;
+  right: 30px;
+  width: 100px;
+  height: 100px;
+  border-radius: 50%;
+  border: 3px solid rgba(92, 58, 33, 0.2);
+  background: radial-gradient(circle, transparent 40%, rgba(92, 58, 33, 0.05) 40%, rgba(92, 58, 33, 0.1) 60%, transparent 60%);
+  animation: shimmer 4s ease-in-out infinite;
+}
+
+.vintageStamp {
+  position: absolute;
+  top: 20px;
+  right: 20px;
+  transform: rotate(12deg);
+}
+
+.stampBorder {
+  padding: 8px 12px;
+  border: 3px dashed #8B4513;
+  background: rgba(139, 69, 19, 0.1);
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 4px;
+}
+
+.stampText {
+  font-family: 'Crimson Text', serif;
+  font-size: 0.7rem;
+  font-weight: 700;
+  color: #8B4513;
+  letter-spacing: 0.1em;
+  text-transform: uppercase;
+}
+
+.pageNumber {
+  position: absolute;
+  bottom: 10px;
+  right: 20px;
+  font-family: 'EB Garamond', serif;
+  font-size: 1.2rem;
+  color: #5c3a21;
+  font-weight: 600;
+}
+
+.bookTabs {
+  position: absolute;
+  right: -50px;
+  top: 50%;
+  transform: translateY(-50%);
+  display: flex;
+  flex-direction: column;
+  gap: 10px;
+  z-index: 7;
+}
+
+.bookTab {
+  width: 40px;
+  padding: 8px;
+  border: 2px solid #2c1810;
+  cursor: pointer;
+  transition: all 0.3s ease;
+  box-shadow: 2px 2px 5px rgba(0,0,0,0.3);
+  display: flex;
+  align-items: center;
+  justify-content: center;
+}
+
+.tabText {
+  color: #f5eddd;
+  font-family: 'Crimson Text', serif;
+  font-weight: 700;
+  font-size: 1rem;
+}
+
+.progressContainer {
+  display: flex;
+  align-items: center;
+  justify-content: center;
+  gap: 1rem;
+  margin-top: 2rem;
+}
+
+.progressBar {
+  width: 300px;
+  height: 8px;
+  background: rgba(44, 24, 16, 0.2);
+  border: 2px solid #2c1810;
+  position: relative;
+  overflow: hidden;
+}
+
+.progressFill {
+  height: 100%;
+  background: linear-gradient(90deg, #2c1810, #5c3a21);
+  transition: width 0.8s cubic-bezier(0.645, 0.045, 0.355, 1);
+}
+
+.progressText {
+  font-family: 'EB Garamond', serif;
+  font-size: 1.1rem;
+  color: #2c1810;
+  font-weight: 600;
+}
+
+.steamContainer {
+  position: relative;
+  display: inline-block;
+  margin-top: 3rem;
+}
+
+.steam {
+  position: absolute;
+  bottom: 70px;
+  width: 35px;
+  height: 35px;
+  background: radial-gradient(circle, rgba(200, 200, 200, 0.7), transparent);
+  border-radius: 50%;
+  animation: steam 3s ease-out infinite;
+  pointer-events: none;
+}
+
+.ctaButton {
+  padding: 1.2rem 4rem;
+  background: linear-gradient(135deg, #2c1810, #3d2416);
+  color: #f5eddd;
+  border: 4px solid #2c1810;
+  font-weight: 700;
+  letter-spacing: 0.2em;
+  text-transform: uppercase;
+  font-size: 1.1rem;
+  cursor: pointer;
+  transition: all 0.4s ease;
+  box-shadow: 6px 6px 0px rgba(44, 24, 16, 0.4), 0 8px 20px rgba(44, 24, 16, 0.3);
+  font-family: 'Crimson Text', serif;
+  display: flex;
+  align-items: center;
+  gap: 1rem;
+  position: relative;
+  overflow: hidden;
+}
+
+.ctaText {
+  position: relative;
+  z-index: 2;
+}
+
+.ctaIcon {
+  width: 24px;
+  height: 24px;
+  animation: pulse 2s ease-in-out infinite;
+}
+
+.vintageFooter {
+  margin-top: 4rem;
+  padding: 2rem;
+  position: relative;
+}
+
+.footerBorder {
+  height: 3px;
+  background: repeating-linear-gradient(90deg, #2c1810 0px, #2c1810 20px, transparent 20px, transparent 40px);
+  margin-bottom: 1rem;
+}
+
+.footerContent {
+  display: flex;
+  flex-direction: column;
+  align-items: center;
+  gap: 0.8rem;
+}
+
+.footerText {
+  font-family: 'Playfair Display', serif;
+  font-size: 1.4rem;
+  color: #2c1810;
+  letter-spacing: 0.15em;
+  font-weight: 700;
+}
+
+.footerSubtext {
+  font-family: 'EB Garamond', serif;
+  font-size: 1rem;
+  color: #5c3a21;
+  display: flex;
+  gap: 1rem;
+  align-items: center;
+  font-weight: 600;
+}
+
+.footerDot {
+  font-size: 1.2rem;
+  color: #704214;
+}
+
+/* Keyframes for animations */
+@keyframes floatParticle {
+  0% {
+    transform: translateY(0) translateX(0);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(-100px) translateX(20px);
+    opacity: 0;
+  }
+}
+
+@keyframes fall {
+  0% {
+    transform: translateY(-100px);
+    opacity: 0;
+  }
+  10% {
+    opacity: 1;
+  }
+  90% {
+    opacity: 1;
+  }
+  100% {
+    transform: translateY(100vh);
+    opacity: 0;
+  }
+}
+
+@keyframes fadeInUp {
+  0% {
+    opacity: 0;
+    transform: translateY(30px);
+  }
+  100% {
+    opacity: 1;
+    transform: translateY(0);
+  }
+}
+
+@keyframes pulse {
+  0%, 100% {
+    transform: scale(1);
+  }
+  50% {
+    transform: scale(1.05);
+  }
+}
+
+@keyframes float {
+  0%, 100% {
+    transform: translateY(0);
+  }
+  50% {
+    transform: translateY(-10px);
+  }
+}
+
+@keyframes shimmer {
+  0%, 100% {
+    opacity: 0.3;
+  }
+  50% {
+    opacity: 0.7;
+  }
+}
+
+@keyframes steam {
+  0% {
+    transform: translateY(0) scale(0.5);
+    opacity: 0;
+  }
+  50% {
+    opacity: 0.5;
+  }
+  100% {
+    transform: translateY(-50px) scale(1.2);
+    opacity: 0;
+  }
+}

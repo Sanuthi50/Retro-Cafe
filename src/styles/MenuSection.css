@@ -1,0 +1,47 @@
+ .menu-section {
+          padding: 6rem 2rem;
+          background: linear-gradient(to bottom, #f5eddd 0%, #e5d5c5 50%, #f5eddd 100%);
+          position: relative;
+        }
+        .menu-section::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: 0;
+          right: 0;
+          height: 4px;
+          background: repeating-linear-gradient(90deg, #2c1810 0px, #2c1810 20px, transparent 20px, transparent 40px);
+        }
+        .menu-header {
+          text-align: center;
+          margin-bottom: 4rem;
+          animation: fadeIn 1s ease-out;
+        }
+        @keyframes fadeIn {
+          from { opacity: 0; }
+          to { opacity: 1; }
+        }
+        .menu-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 4rem;
+          font-weight: 900;
+          color: #2c1810;
+          margin-bottom: 1rem;
+          text-shadow: 3px 3px 0px rgba(0,0,0,0.1);
+          border-bottom: 4px double #2c1810;
+          display: inline-block;
+          padding-bottom: 1rem;
+        }
+        .menu-subtitle {
+          font-size: 1.25rem;
+          color: #5c3a21;
+          font-style: italic;
+          margin-top: 1rem;
+        }
+        .menu-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(300px, 1fr));
+          gap: 2rem;
+        }

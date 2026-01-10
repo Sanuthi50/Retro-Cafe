@@ -1,0 +1,73 @@
+  .testimonials-section {
+          padding: 6rem 2rem;
+          background: linear-gradient(135deg, #f5eddd 0%, #e5d5c5 100%);
+          position: relative;
+        }
+        .testimonials-header {
+          text-align: center;
+          margin-bottom: 4rem;
+        }
+        .testimonials-title {
+          font-family: 'Playfair Display', serif;
+          font-size: 4rem;
+          font-weight: 900;
+          color: #2c1810;
+          text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+        }
+        .testimonials-grid {
+          max-width: 1200px;
+          margin: 0 auto;
+          display: grid;
+          grid-template-columns: repeat(auto-fit, minmax(320px, 1fr));
+          gap: 2rem;
+        }
+        .testimonial-card {
+          background: #f5eddd;
+          border: 3px solid #2c1810;
+          padding: 2rem;
+          position: relative;
+          transition: all 0.3s ease;
+          animation: slideInUp 0.8s ease-out backwards;
+        }
+        .testimonial-card:nth-child(1) { animation-delay: 0.1s; }
+        .testimonial-card:nth-child(2) { animation-delay: 0.3s; }
+        .testimonial-card:nth-child(3) { animation-delay: 0.5s; }
+        @keyframes slideInUp {
+          from {
+            opacity: 0;
+            transform: translateY(40px);
+          }
+          to {
+            opacity: 1;
+            transform: translateY(0);
+          }
+        }
+        .testimonial-card:hover {
+          transform: translateY(-5px);
+          box-shadow: 0 10px 30px rgba(44, 24, 16, 0.3);
+        }
+        .quote-icon {
+          position: absolute;
+          top: 1rem;
+          left: 1rem;
+          opacity: 0.2;
+        }
+        .testimonial-text {
+          font-size: 1.125rem;
+          color: #2c1810;
+          font-style: italic;
+          margin-bottom: 1.5rem;
+          line-height: 1.8;
+          position: relative;
+          z-index: 1;
+        }
+        .testimonial-author {
+          font-weight: 700;
+          color: #5c3a21;
+          font-size: 1rem;
+          margin-bottom: 0.5rem;
+        }
+        .testimonial-rating {
+          display: flex;
+          gap: 0.25rem;
+        }

@@ -1,0 +1,51 @@
+.navbar {
+          position: fixed;
+          top: 0;
+          left: 0;
+          right: 0;
+          z-index: 1000;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          background: linear-gradient(to bottom, rgba(245, 237, 221, 0.95), rgba(245, 237, 221, 0.9));
+          border-bottom: 3px solid #2c1810;
+          backdrop-filter: blur(10px);
+        }
+        .navbar.scrolled {
+          background: rgba(245, 237, 221, 0.98);
+          box-shadow: 0 4px 20px rgba(44, 24, 16, 0.3);
+        }
+        .nav-link {
+          position: relative;
+          padding: 0.5rem 1.5rem;
+          font-weight: 700;
+          letter-spacing: 0.1em;
+          color: #2c1810;
+          text-transform: uppercase;
+          font-size: 0.875rem;
+          transition: all 0.3s ease;
+          border: 2px solid transparent;
+        }
+        .nav-link::after {
+          content: '';
+          position: absolute;
+          bottom: -2px;
+          left: 50%;
+          width: 0;
+          height: 2px;
+          background: #2c1810;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          transform: translateX(-50%);
+        }
+        .nav-link:hover::after {
+          width: 80%;
+        }
+        .nav-link:hover {
+          color: #5c3a21;
+        }
+        .logo-text {
+          font-family: 'Playfair Display', serif;
+          font-size: 1.75rem;
+          font-weight: 700;
+          color: #2c1810;
+          text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+          letter-spacing: 0.05em;
+        }

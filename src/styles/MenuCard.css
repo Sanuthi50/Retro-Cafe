@@ -1,0 +1,74 @@
+ .menu-card {
+          background: #f5eddd;
+          border: 3px solid #2c1810;
+          padding: 1.5rem;
+          transition: all 0.4s cubic-bezier(0.4, 0, 0.2, 1);
+          cursor: pointer;
+          position: relative;
+          overflow: hidden;
+        }
+        .menu-card::before {
+          content: '';
+          position: absolute;
+          top: 0;
+          left: -100%;
+          width: 100%;
+          height: 100%;
+          background: linear-gradient(90deg, transparent, rgba(44, 24, 16, 0.1), transparent);
+          transition: left 0.5s ease;
+        }
+        .menu-card:hover::before {
+          left: 100%;
+        }
+        .menu-card:hover {
+          transform: translateY(-8px);
+          box-shadow: 0 12px 30px rgba(44, 24, 16, 0.3);
+          background: #2c1810;
+          color: #f5eddd;
+        }
+        .menu-card-image {
+          width: 100%;
+          height: 200px;
+          background: linear-gradient(45deg, rgba(44, 24, 16, 0.05) 25%, transparent 25%, transparent 75%, rgba(44, 24, 16, 0.05) 75%),
+                      linear-gradient(45deg, rgba(44, 24, 16, 0.05) 25%, transparent 25%, transparent 75%, rgba(44, 24, 16, 0.05) 75%);
+          background-size: 15px 15px;
+          background-position: 0 0, 7.5px 7.5px;
+          border: 2px solid #2c1810;
+          margin-bottom: 1rem;
+          display: flex;
+          align-items: center;
+          justify-content: center;
+          transition: all 0.3s ease;
+        }
+        .menu-card:hover .menu-card-image {
+          border-color: #f5eddd;
+        }
+        .menu-card-title {
+          font-size: 1.5rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          color: #2c1810;
+          transition: color 0.3s ease;
+        }
+        .menu-card:hover .menu-card-title {
+          color: #f5eddd;
+        }
+        .menu-card-price {
+          font-size: 1.25rem;
+          font-weight: 700;
+          margin-bottom: 0.5rem;
+          color: #5c3a21;
+          transition: color 0.3s ease;
+        }
+        .menu-card:hover .menu-card-price {
+          color: #d4c5aa;
+        }
+        .menu-card-desc {
+          font-size: 0.875rem;
+          font-style: italic;
+          color: #5c3a21;
+          transition: color 0.3s ease;
+        }
+        .menu-card:hover .menu-card-desc {
+          color: #d4c5aa;
+        }

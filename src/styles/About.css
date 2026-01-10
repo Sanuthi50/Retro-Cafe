@@ -1,0 +1,63 @@
+.about-us-container
+{
+    padding: 20px;
+    background-image: url('/cafe.jpg'); /* 0.1.5 */
+    background-size: cover;
+    background-position: center;
+    height: auto; /* Make sure body fills the screen to see effect */
+     
+    
+   
+}
+
+
+
+.about-us-container section
+{
+    max-width: auto;
+    margin: 0 auto;
+    padding: 20px;
+   background-color: rgba(212, 197, 170, 0.7); 
+    backdrop-filter: blur(10px); 
+    border-radius: 8px;
+    box-shadow: 0 4px 8px rgba(0, 0, 0, 0.1);
+    border-color: rgb(0, 0, 0);
+    border-style: solid;
+    border-width: 2px;
+    margin-bottom: 20px;
+}
+.about-us-container h1
+{
+    font-family: 'Playfair Display', serif;
+    font-size: 4rem;
+    font-weight: 900;
+    color: #d4c5aa;
+    text-shadow: 2px 2px 0px rgba(0,0,0,0.1);
+    animation: titlePulse 3s ease-in-out infinite;
+    text-align: center;
+    margin-bottom: 20px;
+}
+  @keyframes titlePulse {
+          0%, 100% { transform: scale(1); }
+          50% { transform: scale(1.02); }
+        }
+
+.about-us-container h2
+{
+    font-size: 2rem;
+    font-weight: 900;
+    color: #2c1810;
+    text-align: center;
+    text-shadow: 1px 1px 0px rgba(0,0,0,0.1);
+    margin-bottom: 15px;        
+}
+        
+.about-us-container p
+{
+    font-size: 1.2em;
+    line-height: 1.6;
+    margin-bottom: 15px;
+    text-align: justify;
+
+}   
+
