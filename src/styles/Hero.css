@@ -630,3 +630,422 @@
     opacity: 0;
   }
 }
+
+/* ========== MOBILE RESPONSIVE STYLES ========== */
+
+/* Tablet & Mobile - 768px and below */
+@media (max-width: 768px) {
+  .hero {
+    padding-top: 60px;
+  }
+
+  .cornerTL,
+  .cornerTR,
+  .cornerBL,
+  .cornerBR {
+    display: none;
+  }
+
+  .headerOrnament {
+    display: none;
+  }
+
+  .heroTitle {
+    font-size: 3rem;
+    margin-bottom: 0.75rem;
+  }
+
+  .heroSubtitle {
+    font-size: 1rem;
+    letter-spacing: 0.2em;
+  }
+
+  .tagline {
+    font-size: 1rem;
+    margin-bottom: 2rem;
+  }
+
+  .decorativeLine {
+    gap: 0.75rem;
+    margin: 1rem 0;
+  }
+
+  .decorativeDash {
+    width: 80px;
+  }
+
+  .carouselWrapper {
+    gap: 1rem;
+    margin: 2rem auto;
+  }
+
+  .carouselButton {
+    width: 50px;
+    height: 50px;
+    box-shadow: 2px 2px 0px rgba(44, 24, 16, 0.4), 0 3px 10px rgba(44, 24, 16, 0.3);
+  }
+
+  .bookContainer {
+    width: 100%;
+    max-width: 320px;
+    height: 320px;
+  }
+
+  .bookPage {
+    height: 320px;
+  }
+
+  .pageContent {
+    padding: 1.5rem 1.25rem;
+  }
+
+  .photoCorner {
+    display: none !important;
+  }
+
+  .iconCircle {
+    width: 70px;
+    height: 70px;
+    margin-bottom: 1rem;
+    border: 3px solid #2c1810;
+  }
+
+  .largeIcon {
+    width: 40px;
+    height: 40px;
+  }
+
+  .imageTitle {
+    font-size: 1.4rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .titleUnderline {
+    width: 70px;
+    height: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .imageSubtitle {
+    font-size: 0.9rem;
+    margin-bottom: 0.4rem;
+  }
+
+  .imageDescription {
+    font-size: 0.85rem;
+  }
+
+  .coffeeRing {
+    display: none;
+  }
+
+  .vintageStamp {
+    display: none;
+  }
+
+  .pageNumber {
+    font-size: 0.9rem;
+  }
+
+  .bookTabs {
+    position: absolute;
+    right: -40px;
+    gap: 6px;
+  }
+
+  .bookTab {
+    width: 35px;
+    padding: 6px;
+    font-size: 0.8rem;
+    box-shadow: 1px 1px 3px rgba(0,0,0,0.3);
+  }
+
+  .tabText {
+    font-size: 0.8rem;
+  }
+
+  .progressContainer {
+    gap: 0.75rem;
+    margin-top: 1.5rem;
+  }
+
+  .progressBar {
+    width: 200px;
+    height: 6px;
+  }
+
+  .progressText {
+    font-size: 0.9rem;
+  }
+
+  .steamContainer {
+    margin-top: 2rem;
+    display: flex;
+    flex-direction: column;
+    gap: 1.5rem;
+    align-items: center;
+  }
+
+  .ctaButton {
+    padding: 1rem 2rem;
+    font-size: 0.95rem;
+    letter-spacing: 0.1em;
+    gap: 0.75rem;
+    box-shadow: 3px 3px 0px rgba(44, 24, 16, 0.4), 0 5px 15px rgba(44, 24, 16, 0.3);
+  }
+
+  .ctaIcon {
+    width: 20px;
+    height: 20px;
+  }
+
+  .vintageFooter {
+    margin-top: 2.5rem;
+    padding: 1.5rem 1rem;
+  }
+
+  .footerBorder {
+    height: 2px;
+    margin-bottom: 0.75rem;
+  }
+
+  .footerText {
+    font-size: 1rem;
+    letter-spacing: 0.1em;
+  }
+
+  .footerSubtext {
+    font-size: 0.85rem;
+    gap: 0.5rem;
+  }
+
+  .footerDot {
+    font-size: 0.9rem;
+  }
+}
+
+/* Small Phones - 480px and below */
+@media (max-width: 480px) {
+  .hero {
+    padding-top: 50px;
+  }
+
+  .heroTitle {
+    font-size: 2rem;
+    margin-bottom: 0.5rem;
+  }
+
+  .heroSubtitle {
+    font-size: 0.85rem;
+    letter-spacing: 0.15em;
+  }
+
+  .tagline {
+    font-size: 0.9rem;
+    margin-bottom: 1.5rem;
+  }
+
+  .decorativeLine {
+    gap: 0.5rem;
+    margin: 0.75rem 0;
+  }
+
+  .decorativeDot {
+    font-size: 0.9rem;
+  }
+
+  .decorativeDash {
+    width: 60px;
+    font-size: 0.7rem;
+  }
+
+  .carouselWrapper {
+    gap: 0.75rem;
+    margin: 1.5rem auto;
+    flex-wrap: wrap;
+    justify-content: center;
+  }
+
+  .carouselButton {
+    width: 45px;
+    height: 45px;
+    border: 2px solid #2c1810;
+    box-shadow: 2px 2px 0px rgba(44, 24, 16, 0.3), 0 2px 8px rgba(44, 24, 16, 0.2);
+  }
+
+  .carouselButton svg {
+    width: 20px;
+    height: 20px;
+  }
+
+  .bookContainer {
+    max-width: 280px;
+    height: 280px;
+    order: 2;
+    margin: 1rem 0;
+  }
+
+  .bookPage {
+    height: 280px;
+    border: 2px solid #2c1810;
+  }
+
+  .pageContent {
+    padding: 1.25rem 1rem;
+  }
+
+  .iconCircle {
+    width: 60px;
+    height: 60px;
+    margin-bottom: 0.75rem;
+    border: 2px solid #2c1810;
+  }
+
+  .largeIcon {
+    width: 32px;
+    height: 32px;
+  }
+
+  .imageTitle {
+    font-size: 1.1rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .titleUnderline {
+    width: 60px;
+    height: 2px;
+    margin-bottom: 0.5rem;
+  }
+
+  .imageSubtitle {
+    font-size: 0.8rem;
+    margin-bottom: 0.3rem;
+  }
+
+  .imageDescription {
+    font-size: 0.75rem;
+  }
+
+  .pageNumber {
+    font-size: 0.75rem;
+    bottom: 8px;
+    right: 15px;
+  }
+
+  .bookTabs {
+    position: static;
+    transform: none;
+    flex-direction: row;
+    order: 3;
+    gap: 4px;
+    margin-top: 1rem;
+  }
+
+  .bookTab {
+    width: 32px;
+    height: 32px;
+    padding: 4px;
+    border: 2px solid #2c1810;
+    font-size: 0.7rem;
+  }
+
+  .progressContainer {
+    gap: 0.5rem;
+    margin-top: 1rem;
+  }
+
+  .progressBar {
+    width: 150px;
+    height: 5px;
+    border: 1px solid #2c1810;
+  }
+
+  .progressText {
+    font-size: 0.8rem;
+  }
+
+  .steam {
+    display: none;
+  }
+
+  .steamContainer {
+    margin-top: 1.5rem;
+  }
+
+  .ctaButton {
+    padding: 0.85rem 1.5rem;
+    font-size: 0.85rem;
+    letter-spacing: 0.08em;
+    gap: 0.5rem;
+    box-shadow: 2px 2px 0px rgba(44, 24, 16, 0.3), 0 3px 10px rgba(44, 24, 16, 0.2);
+  }
+
+  .ctaIcon {
+    width: 18px;
+    height: 18px;
+  }
+
+  .vintageFooter {
+    margin-top: 2rem;
+    padding: 1rem;
+  }
+
+  .footerBorder {
+    height: 2px;
+    margin-bottom: 0.5rem;
+    background: repeating-linear-gradient(90deg, #2c1810 0px, #2c1810 15px, transparent 15px, transparent 30px);
+  }
+
+  .footerContent {
+    gap: 0.5rem;
+  }
+
+  .footerText {
+    font-size: 0.9rem;
+    letter-spacing: 0.08em;
+  }
+
+  .footerSubtext {
+    font-size: 0.75rem;
+    gap: 0.4rem;
+    flex-wrap: wrap;
+  }
+
+  .footerDot {
+    font-size: 0.8rem;
+  }
+}
+
+/* Extra small screens - 375px and below */
+@media (max-width: 375px) {
+  .heroTitle {
+    font-size: 1.75rem;
+  }
+
+  .bookContainer {
+    max-width: 260px;
+    height: 260px;
+  }
+
+  .bookPage {
+    height: 260px;
+  }
+
+  .pageContent {
+    padding: 1rem 0.85rem;
+  }
+
+  .iconCircle {
+    width: 55px;
+    height: 55px;
+  }
+
+  .imageTitle {
+    font-size: 1rem;
+  }
+
+  .ctaButton {
+    padding: 0.75rem 1.25rem;
+    font-size: 0.8rem;
+  }
+}

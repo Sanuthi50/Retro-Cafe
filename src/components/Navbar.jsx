@@ -1,10 +1,10 @@
 import '../styles/Navbar.css';
 import React, { useState, useEffect } from 'react';
-import { Coffee } from 'lucide-react';
+import { Coffee, Menu, X } from 'lucide-react';
 
-// Navbar Component
 const Navbar = () => {
   const [scrolled, setScrolled] = useState(false);
+  const [mobileMenuOpen, setMobileMenuOpen] = useState(false);
 
   useEffect(() => {
     const handleScroll = () => setScrolled(window.scrollY > 50);
@@ -12,26 +12,53 @@ const Navbar = () => {
     return () => window.removeEventListener('scroll', handleScroll);
   }, []);
 
+  const navItems = ['Home', 'Menu', 'Gallery', 'About', 'Contact'];
+
   return (
-    <>
-      <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
-        <div className="max-w-7xl mx-auto px-6 py-4">
-          <div className="flex justify-between items-center">
-            <div className="flex items-center gap-3">
-              <Coffee className="w-8 h-8" style={{ color: '#2c1810' }} />
-              <h1 className="logo-text">The Velvet Steam</h1>
-            </div>
-            <div className="flex gap-2">
-              {['Home', 'Menu', 'Gallery', 'About', 'Contact'].map(item => (
-                <a key={item} href={`#${item.toLowerCase()}`} className="nav-link">
-                  {item}
-                </a>
-              ))}
-            </div>
-          </div>
+    <nav className={`navbar ${scrolled ? 'scrolled' : ''}`}>
+      <div className="navbar-container">
+        {/* Logo */}
+        <div className="navbar-logo">
+          <Coffee size={28} />
+          <span className="logo-text">The Velvet Steam</span>
         </div>
-      </nav>
-    </>
+
+        {/* Desktop Menu */}
+        <ul className="nav-menu">
+          {navItems.map(item => (
+            <li key={item}>
+              <a href={`#${item.toLowerCase()}`} className="nav-link">{item}</a>
+            </li>
+          ))}
+        </ul>
+
+        {/* Mobile Menu Toggle Button */}
+        <button 
+          className="mobile-menu-btn"
+          onClick={() => setMobileMenuOpen(!mobileMenuOpen)}
+          aria-label="Toggle menu"
+        >
+          {mobileMenuOpen ? <X size={28} /> : <Menu size={28} />}
+        </button>
+      </div>
+
+      {/* Mobile Menu */}
+      {mobileMenuOpen && (
+        <div className="mobile-menu">
+          {navItems.map(item => (
+            <a 
+              key={item}
+              href={`#${item.toLowerCase()}`}
+              className="nav-link mobile-nav-link"
+              onClick={() => setMobileMenuOpen(false)}
+            >
+              {item}
+            </a>
+          ))}
+        </div>
+      )}
+    </nav>
   );
 };
+
 export default Navbar;

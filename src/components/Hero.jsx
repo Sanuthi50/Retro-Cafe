@@ -1,5 +1,5 @@
 import { useEffect, useState, useRef } from 'react';
-import { Coffee, ChevronLeft, ChevronRight, Flame, Bean,CupSoda } from 'lucide-react';
+import { Coffee, ChevronLeft, ChevronRight, Flame, Bean, CupSoda } from 'lucide-react';
 import '../styles/Hero.css';
 
 const Hero = () => {
@@ -8,6 +8,7 @@ const Hero = () => {
   const [isFlipping, setIsFlipping] = useState(false);
   const [particles, setParticles] = useState([]);
   const [mousePos, setMousePos] = useState({ x: 0, y: 0 });
+  const [isMobile, setIsMobile] = useState(window.innerWidth <= 768);
   
   const images = [
     { 
@@ -41,8 +42,15 @@ const Hero = () => {
   ];
 
   useEffect(() => {
-    // Rain effect
-    const drops = Array.from({ length: 60 }, (_, i) => ({
+    // Check if mobile on mount and on resize
+    const handleResize = () => {
+      setIsMobile(window.innerWidth <= 768);
+    };
+    window.addEventListener('resize', handleResize);
+
+    // Rain effect (fewer drops on mobile)
+    const dropCount = isMobile ? 30 : 60;
+    const drops = Array.from({ length: dropCount }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       duration: 1 + Math.random() * 2,
@@ -50,8 +58,9 @@ const Hero = () => {
     }));
     setRaindrops(drops);
 
-    // Newspaper particles
-    const parts = Array.from({ length: 30 }, (_, i) => ({
+    // Newspaper particles (fewer on mobile)
+    const particleCount = isMobile ? 15 : 30;
+    const parts = Array.from({ length: particleCount }, (_, i) => ({
       id: i,
       left: Math.random() * 100,
       top: Math.random() * 100,
@@ -67,8 +76,11 @@ const Hero = () => {
       nextImage();
     }, 6000);
 
-    return () => clearInterval(interval);
-  }, []);
+    return () => {
+      clearInterval(interval);
+      window.removeEventListener('resize', handleResize);
+    };
+  }, [isMobile]);
 
   const nextImage = () => {
     if (!isFlipping) {
@@ -91,6 +103,7 @@ const Hero = () => {
   };
 
   const handleMouseMove = (e) => {
+    if (isMobile) return; // Disable on mobile for performance
     const rect = e.currentTarget.getBoundingClientRect();
     setMousePos({
       x: (e.clientX - rect.left) / rect.width,
@@ -106,7 +119,9 @@ const Hero = () => {
       <div 
         className="animatedBg"
         style={{
-          background: `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, #f5eddd 0%, #d4c5aa 50%, #c4b59a 100%)`
+          background: isMobile 
+            ? '#f5eddd'
+            : `radial-gradient(circle at ${mousePos.x * 100}% ${mousePos.y * 100}%, #f5eddd 0%, #d4c5aa 50%, #c4b59a 100%)`
         }} 
       />
       
@@ -150,14 +165,14 @@ const Hero = () => {
         ))}
       </div>
 
-      {/* Ornate corner decorations */}
+      {/* Ornate corner decorations - hidden on mobile */}
       <div className="cornerTL" />
       <div className="cornerTR" />
       <div className="cornerBL" />
       <div className="cornerBR" />
 
       <div className="heroContent">
-        {/* Vintage header with ornaments */}
+        {/* Vintage header with ornaments - hidden on mobile */}
         <div className="headerOrnament">
           <div className="ornamentLine" />
           <Coffee className="headerIcon" />
@@ -181,8 +196,9 @@ const Hero = () => {
             onClick={prevImage} 
             className="carouselButton"
             disabled={isFlipping}
+            aria-label="Previous"
           >
-            <ChevronLeft size={32} />
+            <ChevronLeft size={isMobile ? 24 : 32} />
           </button>
 
           <div className="bookContainer">
@@ -213,7 +229,7 @@ const Hero = () => {
               }}
             >
               <div className="pageContent">
-                {/* Vintage photo corners */}
+                {/* Vintage photo corners - hidden on mobile */}
                 <div className="photoCorner" style={{ top: '10px', left: '10px' }} />
                 <div className="photoCorner" style={{ top: '10px', right: '10px', transform: 'rotate(90deg)' }} />
                 <div className="photoCorner" style={{ bottom: '10px', left: '10px', transform: 'rotate(270deg)' }} />
@@ -234,10 +250,10 @@ const Hero = () => {
                   <p className="imageSubtitle">{images[currentImage].subtitle}</p>
                   <p className="imageDescription">{images[currentImage].description}</p>
                   
-                  {/* Coffee ring stain */}
+                  {/* Coffee ring stain - hidden on mobile */}
                   <div className="coffeeRing" />
                   
-                  {/* Vintage stamp */}
+                  {/* Vintage stamp - hidden on mobile */}
                   <div className="vintageStamp">
                     <div className="stampBorder">
                       <Coffee size={20} />
@@ -269,8 +285,9 @@ const Hero = () => {
                   className="bookTab"
                   style={{
                     background: currentImage === idx ? '#2c1810' : '#8B7355',
-                    height: currentImage === idx ? '60px' : '40px',
+                    height: currentImage === idx ? (isMobile ? '40px' : '60px') : (isMobile ? '30px' : '40px'),
                   }}
+                  aria-label={`Go to slide ${idx + 1}`}
                 >
                   <span className="tabText">{idx + 1}</span>
                 </button>
@@ -282,8 +299,9 @@ const Hero = () => {
             onClick={nextImage} 
             className="carouselButton"
             disabled={isFlipping}
+            aria-label="Next"
           >
-            <ChevronRight size={32} />
+            <ChevronRight size={isMobile ? 24 : 32} />
           </button>
         </div>
 
@@ -304,7 +322,7 @@ const Hero = () => {
 
         {/* Steam effect with CTA */}
         <div className="steamContainer">
-          {[0, 1, 2, 3, 4].map(i => (
+          {!isMobile && [0, 1, 2, 3, 4].map(i => (
             <div 
               key={i} 
               className="steam"
